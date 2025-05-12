@@ -1,0 +1,340 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base colors */
+    --background: 0 0% 3%;
+    --foreground: 210 40% 98%;
+
+    /* Card and UI elements */
+    --card: 0 0% 5%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover and UI elements */
+    --popover: 0 0% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary - Neon Pink */
+    --primary: 330 100% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary - Neon Blue */
+    --secondary: 199 100% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent - Neon Green */
+    --accent: 275 100% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    /* UI Elements */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 215 27% 20%;
+    --input: 215 27% 20%;
+    --ring: 330 100% 60%;
+
+    /* Chart colors */
+    --chart-1: 300 100% 50%;
+    --chart-2: 180 100% 50%;
+    --chart-3: 140 100% 50%;
+    --chart-4: 60 100% 50%;
+    --chart-5: 270 100% 50%;
+
+    /* Border radius */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 3%;
+    --foreground: 210 40% 98%;
+
+    --card: 0 0% 5%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 0 0% 5%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 330 100% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 199 100% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 275 100% 60%;
+    --accent-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 215 27% 20%;
+    --input: 215 27% 20%;
+    --ring: 330 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom utility classes */
+@layer components {
+  .neon-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-blue-500 to-purple-500;
+  }
+
+  .neon-border {
+    @apply border-2 border-pink-600;
+    box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+  }
+
+  .neon-blue-border {
+    @apply border-2 border-blue-500;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  }
+
+  .neon-green-border {
+    @apply border-2 border-green-500;
+    box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+  }
+
+  .retro-card {
+    @apply bg-gradient-to-br from-gray-900 to-black border border-secondary/30;
+    box-shadow: 0 0 15px rgba(0, 247, 255, 0.2);
+    backdrop-filter: blur(8px);
+  }
+
+  .cyber-grid {
+    background-image: radial-gradient(circle, rgba(0, 247, 255, 0.2) 1px, transparent 1px);
+    background-size: 30px 30px;
+  }
+
+  .scanlines {
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 1px,
+      rgba(255, 255, 255, 0.05) 1px,
+      rgba(255, 255, 255, 0.05) 2px
+    );
+  }
+
+  .retro-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0, 247, 255, 0.1) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 247, 255, 0.1) 1px, transparent 1px);
+  }
+
+  .glitch-text {
+    position: relative;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch-text::before {
+    left: 2px;
+    text-shadow: -2px 0 #ff00ff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+
+  .glitch-text::after {
+    left: -2px;
+    text-shadow: -2px 0 #00ffff;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(31px, 9999px, 94px, 0);
+    }
+    10% {
+      clip: rect(112px, 9999px, 76px, 0);
+    }
+    20% {
+      clip: rect(85px, 9999px, 77px, 0);
+    }
+    30% {
+      clip: rect(27px, 9999px, 97px, 0);
+    }
+    40% {
+      clip: rect(64px, 9999px, 98px, 0);
+    }
+    50% {
+      clip: rect(61px, 9999px, 85px, 0);
+    }
+    60% {
+      clip: rect(99px, 9999px, 114px, 0);
+    }
+    70% {
+      clip: rect(34px, 9999px, 115px, 0);
+    }
+    80% {
+      clip: rect(98px, 9999px, 129px, 0);
+    }
+    90% {
+      clip: rect(43px, 9999px, 96px, 0);
+    }
+    100% {
+      clip: rect(82px, 9999px, 64px, 0);
+    }
+  }
+
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(125px, 9999px, 162px, 0);
+    }
+    10% {
+      clip: rect(120px, 9999px, 147px, 0);
+    }
+    20% {
+      clip: rect(113px, 9999px, 171px, 0);
+    }
+    30% {
+      clip: rect(123px, 9999px, 153px, 0);
+    }
+    40% {
+      clip: rect(142px, 9999px, 158px, 0);
+    }
+    50% {
+      clip: rect(131px, 9999px, 162px, 0);
+    }
+    60% {
+      clip: rect(141px, 9999px, 154px, 0);
+    }
+    70% {
+      clip: rect(129px, 9999px, 155px, 0);
+    }
+    80% {
+      clip: rect(139px, 9999px, 173px, 0);
+    }
+    90% {
+      clip: rect(125px, 9999px, 169px, 0);
+    }
+    100% {
+      clip: rect(130px, 9999px, 158px, 0);
+    }
+  }
+
+  /* Chrome effect */
+  .chrome-effect {
+    background: linear-gradient(
+      to right,
+      #222 0%,
+      #444 10%,
+      #888 20%,
+      #ccc 30%,
+      #eee 40%,
+      #fff 50%,
+      #eee 60%,
+      #ccc 70%,
+      #888 80%,
+      #444 90%,
+      #222 100%
+    );
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: chrome-shine 3s linear infinite;
+  }
+
+  @keyframes chrome-shine {
+    to {
+      background-position: 200% center;
+    }
+  }
+}
+
+body {
+  font-family: "Orbitron", "Rajdhani", sans-serif;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  background-image: radial-gradient(circle at 50% 50%, rgba(255, 0, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 247, 255, 0.1) 0%, transparent 40%);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Custom Styles */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(30, 64, 175, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(30, 64, 175, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-scanlines {
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 1px,
+    rgba(255, 255, 255, 0.05) 1px,
+    rgba(255, 255, 255, 0.05) 2px
+  );
+}
+
+.shadow-glow {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+}
+
+.shadow-glow-pink {
+  box-shadow: 0 0 15px rgba(236, 72, 153, 0.3);
+}
+
+.shadow-glow-blue {
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+.shadow-glow-green {
+  box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
+}
+
+.shadow-glow-cyan {
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.3);
+}
+
+.shadow-glow-orange {
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.3);
+}
+
+.animate-pulse {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.1;
+  }
+}
